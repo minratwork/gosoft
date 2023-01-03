@@ -40,6 +40,7 @@ class FakeHttpApi {
   }
 
   getFirst5MatchingContacts ({ namePart }) {
+    console.log("INNER API CALLING");
     if (this._intervalCheck.passedLessThan(SEARCH_REQUEST_MIN_INTERVAL_IN_MILLIS)) {
       return fakeResponse({
         status: _429_TOO_MANY_REQUESTS,

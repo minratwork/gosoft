@@ -11,23 +11,22 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   const { type, payload } = action;
-console.log("CHECK-REDUCER")
-console.log(type)
-console.log(payload)
+
   switch (type) {
     
-    // TODO something is missing here
+    // TODO something is missing here || Fixed ?
     case FETCH_CONTACT_DETAILS__START:
       return {
         ...state,
         fetchedContact: null,
+        fetchFailure: false
       };
 
-    // TODO something is wrong here
+    // TODO something is wrong here || Fixed ?
     case FETCH_CONTACT_DETAILS__SUCCESS:
       return {
         ...state,
-        fetchedContact: null,
+        fetchedContact: payload.contactDetails,
       };
 
     case FETCH_CONTACT_DETAILS__FAILURE:

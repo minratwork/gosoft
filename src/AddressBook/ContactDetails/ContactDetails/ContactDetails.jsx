@@ -41,10 +41,12 @@ const ContactDetails = ({ data, hasFailedToFetch }) => {
         <span>{phone}</span>
       </div>
 
-      {/* TODO something is wrong here */}
+      {/* TODO something is wrong here FIXED? */}
       <div className="ContactDetails_data_item ContactDetails_address">
         <span>Address</span>
-        <span>{addressLines[0]}</span>
+        {addressLines.map(address => (
+          <span key={address}>{address}</span>
+        ))}
       </div>
 
     </div>,

@@ -81,9 +81,11 @@ const mapReduxStateToProps = state => ({
 const mapReduxDispatchToProps = dispatch => ({
   onPhraseChange:
     (newPhrase) => dispatch(updateSearchPhrase(newPhrase)),
-  // TODO something is wrong here
+  // TODO something is wrong here || FIXED
   onMatchingContactSelect:
-    (selectedMatchingContact) => dispatch(updateSearchPhrase(selectedMatchingContact.value)),
+    (selectedMatchingContact) => dispatch(
+      selectMatchingContact(selectedMatchingContact)
+    ),
 });
 
 export default connect(

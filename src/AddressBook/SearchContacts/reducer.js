@@ -29,18 +29,18 @@ const reducer = (state = initialState, action) => {
         matchingContacts: payload.matchingContacts,
       };
 
-    // TODO something is wrong here
+    // TODO something is wrong here || FIXED
     case UPDATE_SEARCH_PHRASE__FAILURE:
       return {
         ...state,
-        searchFailure: false,
+        searchFailure: true,
       };
 
-    // TODO something is wrong here
+    // TODO something is wrong here || FIXED
     case SELECT_MATCHING_CONTACT:
       return {
         ...state,
-        phrase: payload.selectedMatchingContact.id,
+        phrase: payload.selectedMatchingContact.value,
         matchingContacts: [],
       };
 

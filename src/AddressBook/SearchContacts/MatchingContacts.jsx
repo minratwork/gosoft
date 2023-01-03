@@ -12,30 +12,34 @@ const MatchingContacts = (
     downshiftGetItemProps,
   },
 ) => {
-  // TODO something is missing here
-  return (
-    <ul
-      {...downshiftGetMenuProps()}
-      className="MatchingContacts"
-    >
-      {data.map((item, index) => (
-        <li
-          {...downshiftGetItemProps({
-            key: item.id,
-            item: item,
-            // TODO something is wrong here
-            className: classNames(
-              "MatchingContacts_item",
-              {
-                "MatchingContacts_item_highlighted": false,
-              }),
-          })}
-        >
-          {item.value}
-        </li>
-      ))}
-    </ul>
-  );
+  // TODO something is missing here || FIXED ?
+  if (data.length > 0) {
+    return (
+      <ul
+        {...downshiftGetMenuProps()}
+        className="MatchingContacts"
+      >
+        {data.map((item, index) => (
+          <li
+            {...downshiftGetItemProps({
+              key: item.id,
+              item: item,
+              // TODO something is wrong here || FIXED ?
+              className: classNames(
+                "MatchingContacts_item",
+                {
+                  "MatchingContacts_item_highlighted": highlightedIndex ? index == highlightedIndex : false,
+                }),
+            })}
+          >
+            {item.value}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  return (null);
 };
 
 MatchingContacts.propTypes = {
